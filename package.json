@@ -1,0 +1,22 @@
+{
+  "name": "micro-frontend-workspace",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "dev:shell": "pnpm --filter @mfe/shell dev",
+    "dev:chatbot": "pnpm --filter @mfe/chatbot dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "preview": "pnpm -r --parallel preview"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4"
+  }
+}
