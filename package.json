@@ -7,9 +7,14 @@
     "dev": "pnpm -r --parallel dev",
     "dev:shell": "pnpm --filter @mfe/shell dev",
     "dev:chatbot": "pnpm --filter @mfe/chatbot dev",
+    "dev:monolithic": "pnpm --filter @mfe/monolithic dev",
+    "dev:mfe": "pnpm --filter @mfe/chatbot build && pnpm --filter @mfe/chatbot preview --port 3001 & pnpm --filter @mfe/shell dev",
     "build": "pnpm -r build",
+    "build:monolithic": "pnpm --filter @mfe/monolithic build",
+    "build:mfe": "pnpm --filter @mfe/shell build && pnpm --filter @mfe/chatbot build",
     "lint": "pnpm -r lint",
-    "preview": "pnpm -r --parallel preview"
+    "preview": "pnpm -r --parallel preview",
+    "preview:monolithic": "pnpm --filter @mfe/monolithic preview"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

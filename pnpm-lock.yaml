@@ -32,6 +32,9 @@ importers:
       '@google/generative-ai':
         specifier: ^0.24.1
         version: 0.24.1
+      '@mfe/shared':
+        specifier: workspace:*
+        version: link:../shared
       dotenv:
         specifier: ^17.2.3
         version: 17.2.3
@@ -64,8 +67,51 @@ importers:
         specifier: ^7.2.4
         version: 7.3.1(@types/node@24.10.7)
 
+  packages/monolithic:
+    dependencies:
+      '@mfe/shared':
+        specifier: workspace:*
+        version: link:../shared
+      react:
+        specifier: ^19.2.0
+        version: 19.2.3
+      react-dom:
+        specifier: ^19.2.0
+        version: 19.2.3(react@19.2.3)
+    devDependencies:
+      '@types/react':
+        specifier: ^19.2.5
+        version: 19.2.8
+      '@types/react-dom':
+        specifier: ^19.2.3
+        version: 19.2.3(@types/react@19.2.8)
+      '@vitejs/plugin-react-swc':
+        specifier: ^4.2.2
+        version: 4.2.2(vite@7.3.1(@types/node@24.10.7))
+      eslint-plugin-react-hooks:
+        specifier: ^7.0.1
+        version: 7.0.1(eslint@9.39.2)
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.24
+        version: 0.4.26(eslint@9.39.2)
+      vite:
+        specifier: ^7.2.4
+        version: 7.3.1(@types/node@24.10.7)
+
+  packages/shared:
+    dependencies:
+      react:
+        specifier: ^19.2.0
+        version: 19.2.3
+      react-dom:
+        specifier: ^19.2.0
+        version: 19.2.3(react@19.2.3)
+
   packages/shell:
     dependencies:
+      '@mfe/shared':
+        specifier: workspace:*
+        version: link:../shared
       react:
         specifier: ^19.2.0
         version: 19.2.3
