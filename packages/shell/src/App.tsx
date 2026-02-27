@@ -6,9 +6,8 @@ import { RemoteErrorBoundary } from './components/RemoteErrorBoundary'
 const RemoteChatbot = lazy(() => import('chatbot/Chatbot'))
 
 // Booked by Feelings (Webpack 5 MFE) remotes
+// products/cart는 서로 내부 의존성(cartStore)이 있어 동시 로드 불가
 const RemoteHeader = lazy(() => import('header/Header'))
-const RemoteProductList = lazy(() => import('products/ProductList'))
-const RemoteCart = lazy(() => import('cart/Cart'))
 const RemoteOrderList = lazy(() => import('archive/OrderList'))
 
 function RemoteModule({ name, children }: { name: string; children: React.ReactNode }) {
@@ -26,10 +25,6 @@ function App() {
 
   return (
     <div className="shell-app">
-      <RemoteModule name="Header">
-        <RemoteHeader />
-      </RemoteModule>
-
       <header className="shell-header">
         <h1>🏠 Main Application (Shell)</h1>
         <p>이것은 마이크로프론트엔드 호스트 앱입니다</p>
@@ -62,15 +57,9 @@ function App() {
           <h2>🔗 외부 MFE 모듈 (Booked by Feelings)</h2>
           <div className="remote-grid">
             <div className="remote-item">
-              <h3>🛍️ Products</h3>
-              <RemoteModule name="ProductList">
-                <RemoteProductList />
-              </RemoteModule>
-            </div>
-            <div className="remote-item">
-              <h3>🛒 Cart</h3>
-              <RemoteModule name="Cart">
-                <RemoteCart />
+              <h3>🗂️ Header</h3>
+              <RemoteModule name="Header">
+                <RemoteHeader />
               </RemoteModule>
             </div>
             <div className="remote-item">
