@@ -36,7 +36,7 @@ function Chatbot() {
           sender: 'bot',
           timestamp: new Date(),
         }
-        setMessages((prev) => [...prev, botMessage])
+        setMessages((prev: Message[]) => [...prev, botMessage])
       }
     } catch {
       // 일반 텍스트 메시지 처리
@@ -47,7 +47,7 @@ function Chatbot() {
         sender: 'bot',
         timestamp: new Date(),
       }
-      setMessages((prev) => [...prev, botMessage])
+      setMessages((prev: Message[]) => [...prev, botMessage])
     }
   }, [])
 
@@ -78,7 +78,7 @@ function Chatbot() {
       status: status === 'connected' ? 'sending' : 'sent',
     }
 
-    setMessages((prev) => [...prev, userMessage])
+    setMessages((prev: Message[]) => [...prev, userMessage])
 
     if (status === 'connected') {
       sendMessage(JSON.stringify({ type: 'message', content: inputValue }))
@@ -91,7 +91,7 @@ function Chatbot() {
           sender: 'bot',
           timestamp: new Date(),
         }
-        setMessages((prev) => [...prev, botResponse])
+        setMessages((prev: Message[]) => [...prev, botResponse])
       }, 1000)
     }
 
@@ -158,7 +158,7 @@ function Chatbot() {
       </header>
 
       <div className="chatbot-messages">
-        {messages.map((message) => (
+        {messages.map((message: Message) => (
           <div
             key={message.id}
             className={`message ${message.sender === 'user' ? 'user' : 'bot'}`}
